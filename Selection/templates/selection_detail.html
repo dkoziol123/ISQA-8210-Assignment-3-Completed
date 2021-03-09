@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="client-entry">
+  <h2>{{ object.preferance }}</h2>
+    <p>Added by {{ object.time_frame_hour }} {{ object.budget_dollar }}</p>
+    <p>{{ object.author }}</p>
+  </div>
+
+  <p><a href="{% url 'selection_edit' selection.pk %}">Edit</a> | <a href="{% url 'selection_delete' selection.pk %}">Delete</a></p>
+  <p>Back to <a href="{% url 'selection_list' %}">Selections</a></p>
+{% endblock content %}

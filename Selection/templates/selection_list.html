@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Selections{% endblock title %}
+
+{% block content %}
+  {% for selection in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold"> Preference: {{ selection.Preference }}  </span>
+          <br>
+          <!--<span class="font-muted-"> {{ type.name }} | </span>-->
+        <span class="font-weight-bold" style="color:teal"> Budget Dollar: {{ selection.Budget_Dollar}}  </span>
+          <br>
+        <span class="font-weight-bold" style="color:teal"> Time Frame Hours: {{ selection.Time_Frame_Hour }}  </span>
+
+          <!--<span class="font-weight-bold"> Email: {{ type.Public }} | </span>
+          <span class="font-weight-bold"> Email: {{ type.Private }} | </span>
+        <span class="font-muted">addr: {{ person.address }} | </span>
+        <span class="font-muted-">city: {{ person.city }} | </span>
+        <span class="font-muted">st: {{ person.state }} | </span>
+        <span class="font-muted">zip: {{ person.zipcode }} | </span>
+        <span class="font-muted">email: {{ person.email }}  </span>-->
+      </div>
+      <div class="card-body">
+           <p>{{type.notes}}</p>
+        <a href="{% url 'selection_edit' selection.pk %}">Edit</a> |
+        <a href="{% url 'selection_delete' selection.pk %}">Delete</a>
+          <br>
+         <a href="{% url 'home' %}">Back</a>
+          <!--<a href="{% url 'selection_new' %}">+Selection</a>-->
+
+      </div>
+      <div class="card-footer">
+        {% for comment in selection.comments.all %}
+          <p>
+            <span class="font-weight-bold">{{ comment.author }} &middot;</span>
+            {{ comment }}
+          </p>
+        {% endfor %}
+      </div>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}

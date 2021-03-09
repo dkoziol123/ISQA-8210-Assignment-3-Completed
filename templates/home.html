@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to your Recreation Application</h1>
+    <br>
+  <p class="lead">Let the Good Times Begin!!</p>
+  <p class="lead">
+       <a class="btn btn-primary btn-lg" href="{% url 'people_list' %}" role="button">Roledex</a>
+       <a class="btn btn-primary btn-lg" href="{% url 'selection_list' %}" role="button">Selections</a>
+      <a class="btn btn-primary btn-lg" href="{% url 'type_list' %}" role="button">Types</a>
+  </p>
+    <div class="card-body">
+
+
+    </div>
+
+
+
+
+</div>
+
+
+{% endblock content %}
+
+
+
+STATIC_URL = '/static/'

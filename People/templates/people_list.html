@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Roledex{% endblock title %}
+
+{% block content %}
+  {% for person in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold"> Name: {{ person.name }}  </span>
+          <br>
+
+        <span class="font-weight-bold" style="color:teal"> Phone: {{ person.phone }}  </span>
+          <br>
+        <span class="font-weight-bold" style="color:teal"> Email: {{ person.email }}  </span>
+
+        <!--<span class="font-muted">addr: {{ person.address }} | </span>
+        <span class="font-muted-">city: {{ person.city }} | </span>
+        <span class="font-muted">st: {{ person.state }} | </span>
+        <span class="font-muted">zip: {{ person.zipcode }} | </span>
+        <span class="font-muted">email: {{ person.email }}  </span>-->
+      </div>
+      <div class="card-body">
+           <p>{{person.notes}}</p>
+        <a href="{% url 'people_edit' person.pk %}">Edit</a> |
+        <a href="{% url 'people_delete' person.pk %}">Delete</a>
+          <br>
+         <a href="{% url 'home' %}">Back</a>
+          <!--<a href="{% url 'people_new' %}">+Person</a>-->
+      </div>
+      <div class="card-footer">
+        {% for comment in person.comments.all %}
+          <p>
+            <span class="font-weight-bold">{{ comment.person }} &middot;</span>
+            {{ comment }}
+          </p>
+        {% endfor %}
+      </div>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}

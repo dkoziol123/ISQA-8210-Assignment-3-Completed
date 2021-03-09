@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="client-entry">
+<h2>{{ object.name }}</h2>
+    <p>by {{ object.phone }} | {{ object.email }}</p>
+    <p>{{ object.note }}</p>
+  </div>
+
+  <p><a href="{% url 'type_edit' type.pk %}">Edit</a> | <a href="{% url 'type_delete' type.pk %}">Delete</a></p>
+  <p>Back to <a href="{% url 'type_list' %}">Recreation Types</a></p>
+{% endblock content %}
